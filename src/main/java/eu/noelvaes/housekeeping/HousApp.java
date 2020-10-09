@@ -10,6 +10,7 @@ public class HousApp {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         CleaningService jill = ctx.getBean("jill",CleaningService.class);
         CleaningService bob = ctx.getBean("bob",CleaningService.class);
+        CleaningService scott = ctx.getBean("scott",CleaningService.class);
 
 //        CleaningTool broom = new Broom();
 //        CleaningTool vacuum = new VacuumCleaner();
@@ -21,6 +22,8 @@ public class HousApp {
 
         jill.clean();
         bob.clean();
+        scott.clean();
+        scott.clean();
 
         ctx.close();
     }
