@@ -1,0 +1,27 @@
+package eu.noelvaes.housekeeping;
+
+import eu.noelvaes.housekeeping.services.*;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class HousApp {
+    public static void main(String[] args) {
+        ConfigurableApplicationContext ctx =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        CleaningService jill = ctx.getBean("jill",CleaningService.class);
+        CleaningService bob = ctx.getBean("bob",CleaningService.class);
+
+//        CleaningTool broom = new Broom();
+//        CleaningTool vacuum = new VacuumCleaner();
+
+//        CleaningServiceImpl jill = new CleaningServiceImpl();
+//        jill.setCleaningTool(broom);
+//        CleaningServiceImpl bob = new CleaningServiceImpl();
+//        bob.setCleaningTool(vacuum);
+
+        jill.clean();
+        bob.clean();
+
+        ctx.close();
+    }
+}
