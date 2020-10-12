@@ -1,5 +1,8 @@
 package eu.noelvaes.housekeeping.services;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class LawnMower implements GardeningTool{
 
     @Override

@@ -12,7 +12,8 @@ public class HousApp {
 //        CleaningService bob = ctx.getBean("bob",CleaningService.class);
 //        CleaningService scott = ctx.getBean("scott",CleaningService.class);
 //        GardeningService scotty = ctx.getBean("scotty",GardeningService.class);
-        DomesticService service = ctx.getBean("domesticService",DomesticService.class);
+        DomesticService service =
+                ctx.getBean("domesticService",DomesticService.class);
 
 //        CleaningTool broom = new Broom();
 //        CleaningTool vacuum = new VacuumCleaner();

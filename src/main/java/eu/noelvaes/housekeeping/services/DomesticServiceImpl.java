@@ -1,17 +1,23 @@
 package eu.noelvaes.housekeeping.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("domesticService")
 public class DomesticServiceImpl implements DomesticService{
+    @Autowired
     private CleaningService cs;
+    @Autowired
     private GardeningService gs;
 
-    public void setCs(CleaningService cs) {
-        this.cs = cs;
-    }
-
-    public void setGs(GardeningService gs) {
-        this.gs = gs;
-    }
-
+//    public void setCs(CleaningService cs) {
+//        this.cs = cs;
+//    }
+//
+//    public void setGs(GardeningService gs) {
+//        this.gs = gs;
+//    }
+//
     public void init(){
         System.out.println("Initialising bean DomesticServiceImpl...");
     }
@@ -22,8 +28,8 @@ public class DomesticServiceImpl implements DomesticService{
 
     @Override
     public void runHouseHold() {
-        cs.clean();
-        gs.garden();
+        this.cs.clean();
+        this.gs.garden();
 
     }
 }
