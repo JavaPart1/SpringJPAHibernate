@@ -6,19 +6,20 @@ import org.springframework.context.annotation.*;
 @Configuration
 public class AppConfig {
     @Bean
+    @Primary
     public CleaningTool broom(){
         return new Broom();
     }
     @Bean
     public CleaningTool vacuum(){return new VacuumCleaner();
     }
-    @Bean
-    public CleaningService jill(){
+    @Bean(initMethod = "init",destroyMethod = "destroy")
+    public CleaningService jill(CleaningTool tool){
         CleaningServiceImpl cs = new CleaningServiceImpl();
-        cs.setCleaningTool(broom());
+        cs.setCleaningTool(tool);
         return cs;
     }
-    @Bean
+    @Bean(initMethod = "init",destroyMethod = "destroy")
     public CleaningService bob(){
         CleaningServiceImpl cs = new CleaningServiceImpl();
         cs.setCleaningTool(vacuum());
@@ -30,10 +31,27 @@ public class AppConfig {
     public CleaningTool duster(){
         return new DisposableDuster();
     }
-    @Bean
+    @Bean(initMethod = "init",destroyMethod = "destroy")
     public CleaningService scott(){
         CleaningServiceImpl cs = new CleaningServiceImpl();
         cs.setCleaningTool(duster());
         return cs;
+    }
+    @Bean
+    public GardeningTool lawnmower(){
+        return new LawnMower();
+    }
+    @Bean
+    public GardeningService scotty(GardeningTool tool){
+        GardeningServiceImpl gs = new GardeningServiceImpl();
+        gs.setGardeningTool(tool);
+        return gs;
+    }
+    @Bean
+    public DomesticService domesticService(){
+        DomesticServiceImpl domesticService = new DomesticServiceImpl();
+        domesticService.setCs(scott());
+        domesticService.setGs(scotty(lawnmower()));
+        return domesticService;
     }
 }

@@ -7,6 +7,14 @@ public class CleaningServiceImpl implements CleaningService{
         this.cleaningTool = cleaningTool;
     }
 
+    public void init(){
+        System.out.println("Initialising bean CleaningServiceImpl...");
+    }
+
+    public void destroy(){
+        System.out.println("cleaning up bean CleaningServiceImpl..");
+    }
+
     @Override
     public void clean() {
         System.out.println("Cleaning the house");

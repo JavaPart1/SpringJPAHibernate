@@ -8,9 +8,11 @@ public class HousApp {
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx =
                 new AnnotationConfigApplicationContext(AppConfig.class);
-        CleaningService jill = ctx.getBean("jill",CleaningService.class);
-        CleaningService bob = ctx.getBean("bob",CleaningService.class);
-        CleaningService scott = ctx.getBean("scott",CleaningService.class);
+//        CleaningService jill = ctx.getBean("jill",CleaningService.class);
+//        CleaningService bob = ctx.getBean("bob",CleaningService.class);
+//        CleaningService scott = ctx.getBean("scott",CleaningService.class);
+//        GardeningService scotty = ctx.getBean("scotty",GardeningService.class);
+        DomesticService service = ctx.getBean("domesticService",DomesticService.class);
 
 //        CleaningTool broom = new Broom();
 //        CleaningTool vacuum = new VacuumCleaner();
@@ -20,10 +22,12 @@ public class HousApp {
 //        CleaningServiceImpl bob = new CleaningServiceImpl();
 //        bob.setCleaningTool(vacuum);
 
-        jill.clean();
-        bob.clean();
-        scott.clean();
-        scott.clean();
+//        jill.clean();
+//        bob.clean();
+//        scott.clean();
+//        scott.clean();
+//        scotty.garden();
+        service.runHouseHold();
 
         ctx.close();
     }
