@@ -28,7 +28,6 @@ public class GardeningServiceImpl implements GardeningService{
     }
 
     @Override
-    //@Secured({"ROLE_ADULT"}) werkt niet !!!
     public void garden() {
         System.out.println("Working in the garden");
         tool.doGardenJob();

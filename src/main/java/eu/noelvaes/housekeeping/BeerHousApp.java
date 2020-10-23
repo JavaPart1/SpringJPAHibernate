@@ -26,14 +26,6 @@ public class BeerHousApp {
 
         System.out.println(" ");
         System.out.println(pgmName + "  _____________________");
-        System.out.println(pgmName + " - Security Check");
-        SecurityContext sc = SecurityContextHolder.getContext();
-        Authentication auth = new
-                UsernamePasswordAuthenticationToken("homer", "simpson");
-        sc.setAuthentication(auth);
-
-        System.out.println(" ");
-        System.out.println(pgmName + "  _____________________");
         System.out.println(pgmName + " - Create container");
         ConfigurableApplicationContext ctx =
                 new AnnotationConfigApplicationContext(BeerHousApp.class);
