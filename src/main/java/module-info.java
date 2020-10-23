@@ -10,5 +10,7 @@ open module eu.noelvaes.spring{
     requires java.annotation;
     requires java.persistence;
     requires org.hibernate.orm.core;
-
+    requires spring.boot.starter.security;
+    requires spring.security.core;
+    requires spring.security.config;
 }
