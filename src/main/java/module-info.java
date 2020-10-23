@@ -13,4 +13,5 @@ open module eu.noelvaes.spring{
     requires spring.boot.starter.security;
     requires spring.security.core;
     requires spring.security.config;
+    requires spring.web;
 }
